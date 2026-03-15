@@ -1,0 +1,291 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--r:#CE2B37;--g:#009246;--b:#1B3A6B;--bg:#F7F4EE;--card:#fff;--mu:#8A8479;--br:rgba(0,0,0,0.12);--rd:12px}
+body{font-family:system-ui,sans-serif;background:var(--bg);color:#14120E;min-height:100vh}
+.sc{display:none;flex-direction:column;min-height:100vh}.sc.on{display:flex}
+#s0{align-items:center;justify-content:center;padding:28px 18px;gap:18px;text-align:center}
+.fl{display:flex;height:5px;width:130px;border-radius:3px;overflow:hidden}.fl span{flex:1}
+h1{font-size:clamp(20px,5vw,32px);font-weight:700;line-height:1.2}
+.su{font-size:13px;color:var(--mu);margin-top:4px}
+.lg{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%;max-width:320px}
+.lc{background:var(--card);border:2px solid var(--br);border-radius:var(--rd);padding:20px 12px;cursor:pointer;text-align:center;transition:border-color .2s,transform .15s}
+.lc:hover{border-color:var(--b);transform:translateY(-2px)}.lc:active{transform:scale(.97)}
+.lf{font-size:32px;margin-bottom:7px}.ln{font-size:14px;font-weight:600}.ls{font-size:11px;color:var(--mu);margin-top:2px}
+.tb{background:var(--b);color:#fff;padding:12px 16px;display:flex;align-items:center;gap:9px;flex-shrink:0}
+.bb{background:rgba(255,255,255,.18);border:none;color:#fff;padding:5px 12px;border-radius:20px;font-size:12px;cursor:pointer;font-family:inherit}
+.bt{font-size:15px;font-weight:700;flex:1}.lp{background:rgba(255,255,255,.2);padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600}
+#s1 .sc2{padding:18px;max-width:560px;margin:0 auto;width:100%;flex:1}
+.sl{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mu);margin-bottom:8px}
+.mg{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:20px}
+.mc{background:var(--card);border:2px solid var(--br);border-radius:var(--rd);padding:13px 11px;cursor:pointer;transition:border-color .2s}
+.mc:hover{border-color:var(--b)}.mc.sel{border-color:var(--b);background:#EBF3FB}
+.mi{font-size:18px;margin-bottom:5px}.ml{font-size:13px;font-weight:600}.md{font-size:11px;color:var(--mu);margin-top:2px;line-height:1.4}
+.cr{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:18px}
+.cc{background:var(--card);border:1.5px solid var(--br);border-radius:8px;padding:6px 13px;cursor:pointer;font-size:13px;font-weight:500;font-family:inherit;color:#14120E}
+.cc.sel{border-color:var(--b);background:#EBF3FB;color:var(--b)}
+.tg{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:6px;margin-bottom:20px}
+.tc{background:var(--card);border:1.5px solid var(--br);border-radius:8px;padding:7px 8px;cursor:pointer;font-size:11px;font-weight:500;color:#14120E;text-align:center;font-family:inherit;line-height:1.3}
+.tc:hover{border-color:var(--b)}.tc.sel{border-color:var(--b);background:#EBF3FB;color:var(--b)}.tc.all{border-color:var(--b);background:var(--b);color:#fff}
+.sb{width:100%;background:var(--b);color:#fff;border:none;padding:14px;border-radius:var(--rd);font-size:15px;font-weight:600;cursor:pointer;font-family:inherit}
+.sb:hover{opacity:.9}
+.qt{background:var(--b);color:#fff;padding:12px 16px;display:flex;align-items:center;gap:9px;flex-shrink:0}
+.pw{flex:1}.pl{font-size:10px;opacity:.75;margin-bottom:4px}
+.pt{height:4px;background:rgba(255,255,255,.25);border-radius:2px;overflow:hidden}
+.pf{height:100%;background:#fff;border-radius:2px;transition:width .4s}
+.sp{font-size:12px;font-weight:600;white-space:nowrap;background:rgba(255,255,255,.15);padding:4px 10px;border-radius:20px}
+.tm{background:rgba(255,255,255,.15);border-radius:20px;padding:4px 12px;font-size:13px;font-weight:600;min-width:52px;text-align:center;transition:background .3s}
+.tm.warn{background:rgba(206,43,55,.65)}
+#s2 .qb{padding:16px;max-width:560px;margin:0 auto;width:100%;flex:1}
+.tg2{display:inline-block;background:rgba(27,58,107,.1);color:var(--b);font-size:10px;font-weight:600;padding:3px 9px;border-radius:20px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:11px}
+.qq{font-size:clamp(15px,4vw,20px);font-weight:700;line-height:1.4;margin-bottom:6px}
+.qt2{font-size:clamp(12px,3vw,14px);color:var(--mu);font-style:italic;margin-bottom:20px;line-height:1.4}
+.tfg{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:16px}
+.tfb{background:var(--card);border:2.5px solid var(--br);border-radius:var(--rd);padding:20px 11px 16px;cursor:pointer;font-family:inherit;text-align:center;transition:border-color .15s,transform .12s;display:flex;flex-direction:column;align-items:center;gap:6px}
+.tfb:hover:not(.lk){transform:translateY(-3px)}.tfb:active:not(.lk){transform:scale(.96)}
+.tfb.tv:hover:not(.lk){border-color:var(--g)}.tfb.tf:hover:not(.lk){border-color:var(--r)}
+.ti{font-size:30px;line-height:1}.tm2{font-size:18px;font-weight:700}.ts{font-size:11px;color:var(--mu);font-style:italic}
+.tfb.ok{border-color:var(--g);background:#EAF7EE}.tfb.ok .tm2{color:var(--g)}.tfb.ok .ti{color:var(--g)}
+.tfb.no{border-color:var(--r);background:#FDECEA}.tfb.no .tm2{color:var(--r)}.tfb.no .ti{color:var(--r)}
+.tfb.rv{border-color:var(--g);background:#EAF7EE;opacity:.6}.tfb.rv .tm2{color:var(--g)}.tfb.lk{cursor:default}
+.ex{background:#EBF3FB;border:1.5px solid #B5D4F4;border-radius:var(--rd);padding:12px 14px;font-size:13px;line-height:1.6;color:#185FA5;margin-bottom:14px;display:none;animation:fu .3s ease}
+.ex.on{display:block}.ext{font-style:italic;color:#2D7FC9;margin-top:6px;font-size:12px;padding-top:6px;border-top:1px solid #B5D4F4}
+@keyframes fu{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.nb{width:100%;background:var(--b);color:#fff;border:none;padding:13px;border-radius:var(--rd);font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;display:none}.nb.on{display:block;animation:fu .2s ease}.nb:hover{opacity:.9}
+#s3 .rh{background:var(--b);color:#fff;padding:36px 20px 28px;text-align:center;flex-shrink:0}
+.vd{font-size:clamp(26px,7vw,44px);font-weight:700;margin-bottom:6px}.vd.ps{color:#6EFFA8}.vd.fl{color:#FF9494}
+.rs{font-size:13px;opacity:.8;margin-bottom:16px}.rsn{font-size:clamp(44px,11vw,72px);font-weight:700;line-height:1}.rsd{font-size:20px;opacity:.6}
+#s3 .rb{padding:20px 16px 32px;max-width:560px;margin:0 auto;width:100%;flex:1}
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:20px}
+.sc3{background:var(--card);border:1px solid var(--br);border-radius:var(--rd);padding:12px 8px;text-align:center}
+.sn{font-size:24px;font-weight:700}.sn.g{color:var(--g)}.sn.r{color:var(--r)}.sn.b{color:var(--b)}
+.sl2{font-size:11px;color:var(--mu);margin-top:2px}
+.rh2{font-size:15px;font-weight:700;margin-bottom:11px}
+.ri{background:var(--card);border:1px solid var(--br);border-radius:var(--rd);padding:12px 14px;margin-bottom:8px}
+.ri.ok{border-left:4px solid var(--g)}.ri.no{border-left:4px solid var(--r)}
+.rq{font-size:13px;font-weight:600;margin-bottom:3px;line-height:1.4}.rqt{font-size:11px;color:var(--mu);font-style:italic;margin-bottom:6px}
+.ra{font-size:12px;display:flex;align-items:flex-start;gap:5px;margin-bottom:3px}
+.dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:3px}.dot.g{background:var(--g)}.dot.r{background:var(--r)}
+.rac{display:flex;flex-direction:column;gap:8px;margin-top:20px}
+.bp{background:var(--b);color:#fff;border:none;padding:13px;border-radius:var(--rd);font-size:14px;font-weight:600;cursor:pointer;font-family:inherit}
+.bs{background:var(--card);color:var(--b);border:2px solid var(--b);padding:12px;border-radius:var(--rd);font-size:14px;font-weight:600;cursor:pointer;font-family:inherit}
+@media(max-width:360px){.mg{grid-template-columns:1fr}.tg{grid-template-columns:repeat(2,1fr)}}
+</style>
+
+<div class="sc on" id="s0">
+  <div class="fl"><span style="background:#009246"></span><span style="background:#fff;border-top:1px solid #ddd;border-bottom:1px solid #ddd"></span><span style="background:#CE2B37"></span></div>
+  <div><h1>Patente di Guida</h1><p class="su">Bilingual Theory Quiz · Quiz Bilingue</p></div>
+  <div class="lg">
+    <div class="lc" onclick="go('en')"><div class="lf">🇬🇧</div><div class="ln">English</div><div class="ls">English</div></div>
+    <div class="lc" onclick="go('it')"><div class="lf">🇮🇹</div><div class="ln">Italiano</div><div class="ls">Italian</div></div>
+  </div>
+</div>
+
+<div class="sc" id="s1">
+  <div class="tb"><button class="bb" onclick="show('s0')" id="b0">← Language</button><div class="bt" id="b1">Quiz Setup</div><div class="lp" id="b2">EN</div></div>
+  <div class="sc2">
+    <div class="sl" id="b3">Quiz Mode</div>
+    <div class="mg">
+      <div class="mc sel" id="me" onclick="sM('e')"><div class="mi">📋</div><div class="ml" id="b4">Exam Simulation</div><div class="md" id="b5">40 questions · 30 min · Need 36/40</div></div>
+      <div class="mc" id="mp" onclick="sM('p')"><div class="mi">🎯</div><div class="ml" id="b6">Practice Mode</div><div class="md" id="b7">Any number · No timer</div></div>
+    </div>
+    <div id="cs" style="display:none">
+      <div class="sl" id="b8">Number of questions</div>
+      <div class="cr">
+        <button class="cc sel" onclick="sC(this,10)">10</button>
+        <button class="cc" onclick="sC(this,20)">20</button>
+        <button class="cc" onclick="sC(this,30)">30</button>
+        <button class="cc" onclick="sC(this,50)">50</button>
+      </div>
+    </div>
+    <div class="sl" id="b9">Topic</div>
+    <div class="tg" id="tg"></div>
+    <button class="sb" id="b10" onclick="startQ()">Start Quiz →</button>
+  </div>
+</div>
+
+<div class="sc" id="s2">
+  <div class="qt"><button class="bb" onclick="stopQ()" style="padding:5px 9px">✕</button><div class="pw"><div class="pl" id="ql">Question 1 of 40</div><div class="pt"><div class="pf" id="qp" style="width:0%"></div></div></div><div class="sp" id="qs">0✓ 0✗</div><div class="tm" id="qt" style="display:none">30:00</div></div>
+  <div class="qb">
+    <div class="tg2" id="qtag"></div>
+    <div class="qq" id="qq"></div>
+    <div class="qt2" id="qt2"></div>
+    <div class="tfg">
+      <button class="tfb tv" id="bt" onclick="ans(true)"><div class="ti" style="color:#009246">✓</div><div class="tm2" id="tl">True</div><div class="ts" id="ts">Vero</div></button>
+      <button class="tfb tf" id="bf" onclick="ans(false)"><div class="ti" style="color:#CE2B37">✗</div><div class="tm2" id="fl">False</div><div class="ts" id="fs">Falso</div></button>
+    </div>
+    <div class="ex" id="ex"><span id="et"></span><div class="ext" id="es"></div></div>
+    <button class="nb" id="nb" onclick="nxt()">Next →</button>
+  </div>
+</div>
+
+<div class="sc" id="s3">
+  <div class="rh"><div class="vd" id="rv">PASSED!</div><div class="rs" id="rs">You passed</div><div class="rsn" id="rn">38<span class="rsd">/40</span></div></div>
+  <div class="rb">
+    <div class="sg"><div class="sc3"><div class="sn g" id="rc">0</div><div class="sl2" id="rcl">Correct</div></div><div class="sc3"><div class="sn r" id="rw">0</div><div class="sl2" id="rwl">Wrong</div></div><div class="sc3"><div class="sn b" id="rp">0%</div><div class="sl2" id="rpl">Score</div></div></div>
+    <div class="rh2" id="rrl">Review your answers</div>
+    <div id="rvl"></div>
+    <div class="rac"><button class="bp" onclick="show('s1')" id="rag">Try again</button><button class="bs" onclick="show('s0')" id="rlc">Change language</button></div>
+  </div>
+</div>
+
+<script>
+const Q=[
+ {t:{en:'Signs',it:'Segnali'},q:{en:'A triangular sign with a red border is a danger warning sign.',it:'Un segnale triangolare con bordo rosso è un segnale di pericolo.'},c:true,e:{en:'Triangular red-border signs always warn of a hazard ahead.',it:'I segnali triangolari con bordo rosso avvertono sempre di un pericolo imminente.'}},
+ {t:{en:'Signs',it:'Segnali'},q:{en:'A red circle with a white horizontal bar means No Overtaking.',it:'Un cerchio rosso con barra bianca orizzontale significa Divieto di sorpasso.'},c:false,e:{en:'False — it means No Entry (Divieto di accesso). No Overtaking shows two car silhouettes.',it:'Falso — significa Divieto di accesso. Il divieto di sorpasso mostra due sagome di auto.'}},
+ {t:{en:'Signs',it:'Segnali'},q:{en:'Blue circular signs with white symbols are mandatory instruction signs.',it:'I segnali circolari blu con simboli bianchi sono segnali di obbligo.'},c:true,e:{en:'Correct. Blue circular = mandatory direction or obligation.',it:'Corretto. Circolari blu = obbligo di direzione o comportamento.'}},
+ {t:{en:'Signs',it:'Segnali'},q:{en:'The inverted triangle with red border means you must stop completely.',it:'Il triangolo rovesciato con bordo rosso significa che devi fermarti completamente.'},c:false,e:{en:'False — it is Give Way (Dare precedenza). No full stop needed if road is clear.',it:'Falso — è il segnale Dare precedenza. Non serve la fermata se la strada è libera.'}},
+ {t:{en:'Signs',it:'Segnali'},q:{en:'The yellow diamond sign means you have priority over vehicles from side roads.',it:'Il segnale a rombo giallo significa che hai la precedenza sulle strade laterali.'},c:true,e:{en:'Correct. Yellow diamond = Strada con precedenza (priority road).',it:'Corretto. Rombo giallo = Strada con precedenza.'}},
+ {t:{en:'Signs',it:'Segnali'},q:{en:'A STOP sign only requires slowing down — a full stop is not always needed.',it:'Un segnale STOP richiede solo di rallentare — la fermata completa non è sempre obbligatoria.'},c:false,e:{en:'False. STOP always requires a complete stop. Fine: €85–€341.',it:'Falso. STOP richiede sempre una fermata completa. Multa: €85–€341.'}},
+ {t:{en:'Priority',it:'Precedenza'},q:{en:'At an unmarked junction in Italy, vehicles from your right have priority.',it:'A un incrocio non segnalato, i veicoli da destra hanno la precedenza.'},c:true,e:{en:'Correct. Italy follows the right-hand rule (diritto di precedenza a destra).',it:'Corretto. In Italia vige la regola della precedenza a destra.'}},
+ {t:{en:'Priority',it:'Precedenza'},q:{en:'When entering an Italian roundabout, you have priority over vehicles already inside.',it:'Entrando in una rotatoria italiana, hai la precedenza sui veicoli già all\'interno.'},c:false,e:{en:'False. Vehicles already inside have priority. You must yield.',it:'Falso. I veicoli già all\'interno hanno la precedenza. Devi cedere il passo.'}},
+ {t:{en:'Priority',it:'Precedenza'},q:{en:'Trams always have priority over all other road traffic.',it:'I tram hanno sempre la precedenza su tutto il traffico.'},c:true,e:{en:'Correct. Trams cannot steer or brake quickly — always give way.',it:'Corretto. I tram non possono sterzare o frenare rapidamente — cedere sempre.'}},
+ {t:{en:'Priority',it:'Precedenza'},q:{en:'On a narrow mountain road, the vehicle going downhill has priority.',it:'Su una stretta strada di montagna, il veicolo in discesa ha la precedenza.'},c:false,e:{en:'False. The uphill vehicle has priority. The descending vehicle reverses.',it:'Falso. Il veicolo in salita ha la precedenza. Quello in discesa deve tornare indietro.'}},
+ {t:{en:'Speed',it:'Velocità'},q:{en:'Maximum speed on an Italian motorway in dry conditions is 130 km/h.',it:'La velocità massima in autostrada con tempo asciutto è 130 km/h.'},c:true,e:{en:'Correct. 130 km/h standard; 110 in rain; 100 for new drivers.',it:'Corretto. 130 km/h standard; 110 con pioggia; 100 per i neopatentati.'}},
+ {t:{en:'Speed',it:'Velocità'},q:{en:'The standard speed limit in Italian urban areas is 70 km/h.',it:'Il limite standard nelle aree urbane italiane è 70 km/h.'},c:false,e:{en:'False. Urban limit is 50 km/h from the town name sign.',it:'Falso. Il limite urbano è 50 km/h dal cartello con il nome del paese.'}},
+ {t:{en:'Speed',it:'Velocità'},q:{en:'A new driver (licence under 3 years) is limited to 100 km/h on motorways.',it:'Un neopatentato è limitato a 100 km/h in autostrada.'},c:true,e:{en:'Correct. Also 90 km/h on dual carriageways for new drivers.',it:'Corretto. Anche 90 km/h sulle superstrade per i neopatentati.'}},
+ {t:{en:'Speed',it:'Velocità'},q:{en:'The Tutor system measures your maximum speed at a single camera point.',it:'Il sistema Tutor misura la velocità massima in un singolo punto.'},c:false,e:{en:'False. Tutor measures average speed between two gantries kilometres apart.',it:'Falso. Il Tutor misura la velocità media tra due portali a chilometri di distanza.'}},
+ {t:{en:'Speed',it:'Velocità'},q:{en:'Italian traffic fines are reduced 30% if paid within 5 days.',it:'Le multe italiane si riducono del 30% se pagate entro 5 giorni.'},c:true,e:{en:'Correct. 30% discount for payment within 5 days.',it:'Corretto. Sconto del 30% pagando entro 5 giorni.'}},
+ {t:{en:'Rules',it:'Norme'},q:{en:'The legal blood alcohol limit for experienced drivers in Italy is 0.5 g/L.',it:'Il limite legale di alcolemia per conducenti esperti è 0,5 g/L.'},c:true,e:{en:'Correct. Zero tolerance for new drivers, professionals, and under-21s.',it:'Corretto. Tolleranza zero per neopatentati, professionisti e under 21.'}},
+ {t:{en:'Rules',it:'Norme'},q:{en:'Using a handheld phone is permitted when stopped at a red light.',it:'Usare il cellulare in mano è consentito al semaforo rosso.'},c:false,e:{en:'False. Handheld phone use is illegal at all times when in control of a vehicle.',it:'Falso. Il cellulare in mano è illegale sempre alla guida.'}},
+ {t:{en:'Rules',it:'Norme'},q:{en:'White parking lines indicate free parking unless otherwise signed.',it:'Le strisce bianche indicano parcheggio libero salvo diversa indicazione.'},c:true,e:{en:'Correct. White=free, Blue=paid, Yellow=reserved.',it:'Corretto. Bianche=libere, Blu=pagamento, Gialle=riservato.'}},
+ {t:{en:'Rules',it:'Norme'},q:{en:'Outside urban areas, dipped headlights are compulsory at all times even in daylight.',it:'Fuori dalle aree urbane gli anabbaglianti sono obbligatori sempre anche di giorno.'},c:true,e:{en:'Correct. Dipped headlights required at all times outside urban areas.',it:'Corretto. Anabbaglianti obbligatori sempre fuori dalle aree urbane.'}},
+ {t:{en:'Rules',it:'Norme'},q:{en:'Seatbelts are only compulsory for front-seat passengers.',it:'Le cinture sono obbligatorie solo per i passeggeri anteriori.'},c:false,e:{en:'False. Seatbelts compulsory for all passengers front and rear.',it:'Falso. Cinture obbligatorie per tutti i passeggeri, anteriori e posteriori.'}},
+ {t:{en:'Motorway',it:'Autostrada'},q:{en:'On Italian motorways you must normally drive in the rightmost lane unless overtaking.',it:'In autostrada si deve guidare nella corsia più a destra tranne che per sorpassare.'},c:true,e:{en:'Correct. Continuous middle or left lane use without overtaking is an offence.',it:'Corretto. Guidare continuamente nella corsia centrale o sinistra è un\'infrazione.'}},
+ {t:{en:'Motorway',it:'Autostrada'},q:{en:'Cyclists may use Italian motorways if they stay on the hard shoulder.',it:'I ciclisti possono usare le autostrade restando nella corsia di emergenza.'},c:false,e:{en:'False. Cyclists, pedestrians and mopeds under 150cc are totally prohibited.',it:'Falso. Ciclisti, pedoni e ciclomotori sotto 150cc sono completamente vietati.'}},
+ {t:{en:'Motorway',it:'Autostrada'},q:{en:'The warning triangle must be 150 m behind your vehicle on a motorway.',it:'Il triangolo deve essere a 150 m dietro il veicolo in autostrada.'},c:true,e:{en:'Correct. 150 m on motorway; 50 m on ordinary roads.',it:'Corretto. 150 m in autostrada; 50 m sulle strade ordinarie.'}},
+ {t:{en:'Motorway',it:'Autostrada'},q:{en:'U-turns are permitted on motorways in emergencies.',it:'Le inversioni di marcia sono consentite in autostrada in emergenza.'},c:false,e:{en:'False. U-turns and reversing are always prohibited on motorways.',it:'Falso. Inversioni e retromarcia sono sempre vietate in autostrada.'}},
+ {t:{en:'Tunnels',it:'Gallerie'},q:{en:'Dipped headlights are compulsory in all tunnels regardless of lighting or time.',it:'Gli anabbaglianti sono obbligatori in tutte le gallerie indipendentemente dall\'illuminazione.'},c:true,e:{en:'Correct. Headlights in ALL tunnels, always — one of the most tested rules.',it:'Corretto. Anabbaglianti in TUTTE le gallerie, sempre — una delle regole più testate.'}},
+ {t:{en:'Tunnels',it:'Gallerie'},q:{en:'You may stop briefly in a tunnel to take a phone call.',it:'Puoi fermarti brevemente in galleria per rispondere al telefono.'},c:false,e:{en:'False. Stopping in a tunnel is never permitted except in an emergency bay.',it:'Falso. Fermarsi in galleria non è mai consentito tranne che in una piazzola di emergenza.'}},
+ {t:{en:'Crossings',it:'Passaggi'},q:{en:'At a level crossing with red flashing lights, stop as soon as the lights begin flashing.',it:'A un passaggio a livello con luci rosse lampeggianti, fermarsi appena iniziano.'},c:true,e:{en:'Correct. Do not wait for barriers — the lights are the legal stop signal.',it:'Corretto. Non aspettare le barriere — le luci sono il segnale legale di arresto.'}},
+ {t:{en:'Weather',it:'Maltempo'},q:{en:'When fog reduces visibility below 100 m, reduce to half the posted speed limit.',it:'Con nebbia sotto i 100 m di visibilità, ridurre alla metà del limite.'},c:true,e:{en:'Correct. Legal requirement when visibility drops below 100 m.',it:'Corretto. Obbligo di legge quando la visibilità scende sotto i 100 m.'}},
+ {t:{en:'Weather',it:'Maltempo'},q:{en:'Maximum speed with snow chains fitted is 50 km/h.',it:'La velocità massima con le catene è di 50 km/h.'},c:true,e:{en:'Correct. Using chains on a clear dry road is also illegal.',it:'Corretto. Usare le catene su strada asciutta è anch\'esso illegale.'}},
+ {t:{en:'Drugs',it:'Droghe'},q:{en:'Any detectable level of illegal drugs while driving is an offence in Italy.',it:'Qualsiasi livello rilevabile di droghe illegali alla guida è un\'infrazione.'},c:true,e:{en:'Correct. Italy has zero tolerance — no minimum threshold.',it:'Corretto. L\'Italia ha tolleranza zero — nessuna soglia minima.'}},
+ {t:{en:'Drugs',it:'Droghe'},q:{en:'Refusing a roadside narcotest is treated as a minor offence.',it:'Rifiutare un narcotest è considerato un\'infrazione minore.'},c:false,e:{en:'False. Refusing = positive result — most severe penalties apply.',it:'Falso. Rifiutare equivale a positivo — si applicano le sanzioni più severe.'}},
+ {t:{en:'Licences',it:'Patenti'},q:{en:'Category B covers vehicles up to 3,500 kg with max 8 passenger seats.',it:'La categoria B copre veicoli fino a 3.500 kg con massimo 8 posti.'},c:true,e:{en:'Correct. Category B is the standard car and light van licence.',it:'Corretto. La categoria B è la patente standard per auto e furgoni leggeri.'}},
+ {t:{en:'Licences',it:'Patenti'},q:{en:'New Italian drivers start with 20 penalty points.',it:'I nuovi conducenti italiani iniziano con 20 punti di penalità.'},c:false,e:{en:'False. New drivers start with 18 points. Experienced drivers start with 20.',it:'Falso. I neopatentati iniziano con 18 punti. I conducenti esperti con 20.'}},
+ {t:{en:'Accidents',it:'Incidenti'},q:{en:'You must notify your insurer within 3 days of an accident.',it:'Devi notificare l\'assicurazione entro 3 giorni da un incidente.'},c:true,e:{en:'Correct. Report within 3 days even if not at fault.',it:'Corretto. Segnalare entro 3 giorni anche se non si è in torto.'}},
+ {t:{en:'Accidents',it:'Incidenti'},q:{en:'Signing the CID means you are admitting fault for the accident.',it:'Firmare il CID significa ammettere la colpa per l\'incidente.'},c:false,e:{en:'False. Signing only confirms receipt and agreed facts — not fault.',it:'Falso. Firmare conferma solo la ricezione e i fatti — non la colpa.'}},
+ {t:{en:'Motorcycles',it:'Moto'},q:{en:'Helmets are compulsory on all motorcycles including 50cc mopeds.',it:'I caschi sono obbligatori su qualsiasi moto inclusi i ciclomotori 50cc.'},c:true,e:{en:'Correct. Helmets compulsory at all times on any motorcycle or scooter.',it:'Corretto. Caschi obbligatori sempre su qualsiasi moto o scooter.'}},
+ {t:{en:'Motorcycles',it:'Moto'},q:{en:'Motorcycle headlights must be on at all times including urban areas in daylight.',it:'I fari delle moto devono essere accesi sempre anche in aree urbane di giorno.'},c:true,e:{en:'Correct. Unlike cars, motorcycles need headlights on all roads at all times.',it:'Corretto. A differenza delle auto, le moto hanno i fari obbligatori su tutte le strade.'}},
+ {t:{en:'Cyclists',it:'Ciclisti'},q:{en:'When overtaking a cyclist, a minimum lateral clearance of 1.5 metres is required.',it:'Sorpassando un ciclista, è necessaria una distanza laterale minima di 1,5 metri.'},c:true,e:{en:'Correct. At least 1.5 m required. If impossible, do not overtake.',it:'Corretto. Almeno 1,5 m richiesti. Se impossibile, non sorpassare.'}},
+ {t:{en:'Towing',it:'Rimorchi'},q:{en:'Maximum speed when towing a caravan on an Italian motorway is 80 km/h.',it:'La velocità massima trainando una roulotte in autostrada è 80 km/h.'},c:true,e:{en:'Correct. 80 km/h when towing regardless of the 130 km/h standard limit.',it:'Corretto. 80 km/h trainando indipendentemente dal limite standard di 130 km/h.'}},
+ {t:{en:'ZTL',it:'ZTL'},q:{en:'ZTL cameras automatically fine vehicles entering without a valid permit.',it:'Le telecamere ZTL multano automaticamente i veicoli che entrano senza permesso.'},c:true,e:{en:'Correct. ZTL fines of €80–€320 per entry are posted automatically.',it:'Corretto. Multe ZTL da €80–€320 per accesso vengono inviate automaticamente.'}},
+ {t:{en:'First Aid',it:'Primo Soccorso'},q:{en:'CPR chest compressions should be 5–6 cm deep at 100–120 per minute.',it:'Le compressioni RCP devono essere 5–6 cm a 100–120 al minuto.'},c:true,e:{en:'Correct. International CPR guidelines.',it:'Corretto. Linee guida RCP internazionali.'}},
+ {t:{en:'First Aid',it:'Primo Soccorso'},q:{en:'You should always move an accident victim into the recovery position immediately.',it:'Si deve sempre spostare immediatamente la vittima in posizione laterale di sicurezza.'},c:false,e:{en:'False. Do not move someone with suspected spinal injury unless in immediate danger.',it:'Falso. Non spostare una persona con sospetta lesione spinale a meno di pericolo immediato.'}},
+ {t:{en:'Night Driving',it:'Guida Notturna'},q:{en:'At night drive at a speed allowing you to stop within your headlight range.',it:'Di notte guidare a una velocità che consenta di fermarsi entro il raggio dei proiettori.'},c:true,e:{en:'Correct — the regola della visibilità (visibility rule).',it:'Corretto — la regola della visibilità.'}},
+ {t:{en:'Emergency',it:'Emergenza'},q:{en:'On a 3-lane motorway, left-lane vehicles move left and all others move right for the emergency corridor.',it:'Su un\'autostrada a 3 corsie, la sinistra va a sinistra e le altre a destra per il corridoio.'},c:true,e:{en:'Correct. Emergency corridor forms between left and centre lanes.',it:'Corretto. Il corridoio si forma tra la corsia sinistra e quella centrale.'}},
+ {t:{en:'Maintenance',it:'Manutenzione'},q:{en:'Minimum legal tyre tread depth in Italy is 1.6 mm.',it:'La profondità minima legale del battistrada in Italia è 1,6 mm.'},c:true,e:{en:'Correct. 1.6 mm across the central three-quarters of the tyre width.',it:'Corretto. 1,6 mm nella parte centrale dei tre quarti del pneumatico.'}},
+ {t:{en:'Maintenance',it:'Manutenzione'},q:{en:'After the first revisione, private cars must be re-inspected every year.',it:'Dopo la prima revisione, le auto private devono essere ispezionate ogni anno.'},c:false,e:{en:'False. Re-inspection is every 2 years after the first revisione.',it:'Falso. La revisione è ogni 2 anni dopo la prima.'}},
+ {t:{en:'Cities',it:'Città'},q:{en:'Rome\'s ZTL Centro Storico operates weekdays 06:30–18:00 and Saturday afternoon.',it:'La ZTL Centro Storico di Roma è attiva feriali 06:30–18:00 e sabato pomeriggio.'},c:true,e:{en:'Correct. Monday–Friday 06:30–18:00 and Saturday 14:00–18:00.',it:'Corretto. Lunedì–venerdì 06:30–18:00 e sabato 14:00–18:00.'}},
+ {t:{en:'Cities',it:'Città'},q:{en:'Milan\'s Area C is a low emission zone that bans older polluting vehicles.',it:'L\'Area C di Milano è una zona a basse emissioni che vieta i veicoli inquinanti.'},c:false,e:{en:'False. Area C is a congestion charge zone (€5/entry). Area B is the emission zone.',it:'Falso. L\'Area C è una zona a pedaggio (€5/accesso). L\'Area B è la zona emissioni.'}},
+ {t:{en:'Exam',it:'Esame'},q:{en:'The Italian theory exam has 40 questions and allows max 4 errors to pass.',it:'L\'esame teorico ha 40 domande e consente massimo 4 errori per superarlo.'},c:true,e:{en:'Correct. 36/40 required within 30 minutes. Available in multiple languages.',it:'Corretto. Servono 36/40 in 30 minuti. Disponibile in più lingue.'}},
+ {t:{en:'Markings',it:'Segnaletica'},q:{en:'A solid white centre line means overtaking is permitted when safe.',it:'Una linea bianca continua al centro significa che il sorpasso è consentito quando sicuro.'},c:false,e:{en:'False. Solid white = never cross it. Dashed = overtaking permitted when safe.',it:'Falso. Continua = non attraversare mai. Tratteggiata = sorpasso consentito quando sicuro.'}},
+ {t:{en:'Markings',it:'Segnaletica'},q:{en:'Blue kerb markings indicate paid parking requiring a disco orario or meter.',it:'Le strisce blu indicano parcheggio a pagamento con disco orario o parcometro.'},c:true,e:{en:'Correct. Blue=paid, White=free, Yellow=reserved.',it:'Corretto. Blu=pagamento, Bianche=libere, Gialle=riservato.'}},
+ {t:{en:'Eco-Driving',it:'Guida Ecologica'},q:{en:'Coasting in gear uses virtually no fuel on modern fuel-injected engines.',it:'Scivolare in marcia consuma quasi nessun carburante sui motori moderni.'},c:true,e:{en:'Correct. Releasing the accelerator in gear activates fuel cut-off.',it:'Corretto. Rilasciare l\'acceleratore a marcia inserita attiva il taglio del carburante.'}},
+ {t:{en:'Tolls',it:'Pedaggi'},q:{en:'Maximum speed through a Telepass lane is 30 km/h.',it:'La velocità massima attraverso una corsia Telepass è 30 km/h.'},c:true,e:{en:'Correct. Transponder communicates automatically — do not stop.',it:'Corretto. Il transponder comunica automaticamente — non fermarsi.'}},
+];
+
+const TP={en:['All','Signs','Priority','Speed','Rules','Motorway','Tunnels','Crossings','Weather','Drugs','Licences','Accidents','Motorcycles','Cyclists','Towing','ZTL','First Aid','Night Driving','Emergency','Maintenance','Cities','Exam','Markings','Eco-Driving','Tolls'],it:['Tutti','Segnali','Precedenza','Velocità','Norme','Autostrada','Gallerie','Passaggi','Maltempo','Droghe','Patenti','Incidenti','Moto','Ciclisti','Rimorchi','ZTL','Primo Soccorso','Guida Notturna','Emergenza','Manutenzione','Città','Esame','Segnaletica','Guida Ecologica','Pedaggi']};
+
+let L='en',mode='e',st='all',pc=10,qs=[],cur=0,ok=0,bad=0,dn=false,hist=[],ti=null,tL=1800;
+const $=id=>document.getElementById(id);
+function show(id){document.querySelectorAll('.sc').forEach(s=>s.classList.remove('on'));$(id).classList.add('on');window.scrollTo(0,0);}
+
+function go(l){
+  L=l;const it=l==='it';
+  $('b2').textContent=l.toUpperCase();
+  $('b0').textContent=it?'← Lingua':'← Language';
+  $('b1').textContent=it?'Impostazioni':'Quiz Setup';
+  $('b3').textContent=it?'Modalità':'Quiz Mode';
+  $('b4').textContent=it?'Simulazione Esame':'Exam Simulation';
+  $('b5').textContent=it?'40 domande · 30 min · Serve 36/40':'40 questions · 30 min · Need 36/40';
+  $('b6').textContent=it?'Modalità Pratica':'Practice Mode';
+  $('b7').textContent=it?'Qualsiasi numero · Senza timer':'Any number · No timer';
+  $('b8').textContent=it?'Numero di domande':'Number of questions';
+  $('b9').textContent=it?'Argomento':'Topic';
+  $('b10').textContent=it?'Inizia Quiz →':'Start Quiz →';
+  $('tl').textContent=it?'Vero':'True';$('ts').textContent=it?'True':'Vero';
+  $('fl').textContent=it?'Falso':'False';$('fs').textContent=it?'False':'Falso';
+  $('rcl').textContent=it?'Corrette':'Correct';$('rwl').textContent=it?'Errate':'Wrong';
+  $('rpl').textContent=it?'Punteggio':'Score';$('rrl').textContent=it?'Rivedi le risposte':'Review your answers';
+  $('rag').textContent=it?'Riprova':'Try again';$('rlc').textContent=it?'Cambia lingua':'Change language';
+  buildT();show('s1');
+}
+
+function buildT(){
+  const ts=TP[L];
+  $('tg').innerHTML=ts.map((t,i)=>{const v=i===0?'all':t;return`<button class="tc${i===0?' all sel':''}" onclick="selT(this,'${v.replace(/'/g,"\\'")}')">${t}</button>`;}).join('');
+  st='all';
+}
+
+function selT(el,v){document.querySelectorAll('.tc').forEach(c=>c.classList.remove('sel','all'));el.classList.add('sel');if(v==='all')el.classList.add('all');st=v;}
+function sM(m){mode=m;document.querySelectorAll('.mc').forEach(c=>c.classList.remove('sel'));$('m'+m).classList.add('sel');$('cs').style.display=m==='p'?'block':'none';}
+function sC(el,n){document.querySelectorAll('.cc').forEach(c=>c.classList.remove('sel'));el.classList.add('sel');pc=n;}
+function shuf(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
+
+function startQ(){
+  let pool=Q;
+  if(st!=='all'){pool=Q.filter(q=>q.t.en===st||q.t.it===st);if(!pool.length)pool=Q;}
+  pool=shuf(pool);
+  const n=mode==='e'?40:pc;
+  qs=pool.slice(0,Math.min(n,pool.length));
+  while(qs.length<n)qs=[...qs,...shuf(pool)].slice(0,n);
+  cur=0;ok=0;bad=0;dn=false;hist=[];
+  show('s2');rQ();
+  clearInterval(ti);
+  if(mode==='e'){tL=1800;$('qt').style.display='block';tick();ti=setInterval(()=>{tL--;tick();if(tL<=0){clearInterval(ti);endQ();}},1000);}
+  else $('qt').style.display='none';
+}
+
+function tick(){const m=String(Math.floor(tL/60)).padStart(2,'0'),s=String(tL%60).padStart(2,'0');$('qt').textContent=`${m}:${s}`;$('qt').classList.toggle('warn',tL<=120);}
+
+function rQ(){
+  const q=qs[cur],tot=qs.length,ol=L==='en'?'it':'en',it=L==='it';
+  $('ql').textContent=`${it?'Domanda':'Question'} ${cur+1} ${it?'di':'of'} ${tot}`;
+  $('qp').style.width=(cur/tot*100)+'%';
+  $('qs').textContent=`${ok}✓ ${bad}✗`;
+  $('qtag').textContent=q.t[L];
+  $('qq').textContent=q.q[L];
+  $('qt2').textContent=q.q[ol];
+  $('ex').classList.remove('on');$('nb').classList.remove('on');
+  $('nb').textContent=cur<qs.length-1?(it?'Avanti →':'Next →'):(it?'Vedi Risultati →':'See Results →');
+  $('bt').className='tfb tv';$('bf').className='tfb tf';
+  $('bt').onclick=()=>ans(true);$('bf').onclick=()=>ans(false);
+  dn=false;
+}
+
+function ans(ch){
+  if(dn)return;dn=true;
+  const q=qs[cur],isOk=ch===q.c;
+  if(isOk)ok++;else bad++;
+  hist.push({q,ch,isOk});
+  const tb=$('bt'),fb=$('bf');
+  tb.classList.add('lk');fb.classList.add('lk');
+  if(q.c===true){tb.classList.add(ch?'ok':'rv');if(!ch)fb.classList.add('no');}
+  else{fb.classList.add(!ch?'ok':'rv');if(ch)tb.classList.add('no');}
+  const ol=L==='en'?'it':'en';
+  $('et').textContent=q.e[L];$('es').textContent=q.e[ol];
+  $('ex').classList.add('on');$('qs').textContent=`${ok}✓ ${bad}✗`;$('nb').classList.add('on');
+  if(mode==='p'&&isOk)setTimeout(()=>{if(dn)nxt();},1300);
+}
+
+function nxt(){if(cur>=qs.length-1){endQ();return;}cur++;rQ();window.scrollTo(0,0);}
+function stopQ(){clearInterval(ti);show('s1');}
+
+function endQ(){
+  clearInterval(ti);
+  const tot=qs.length,pct=Math.round(ok/tot*100),pass=mode==='e'?ok>=36:pct>=80,it=L==='it';
+  $('rv').textContent=pass?(it?'PROMOSSO!':'PASSED!'):(it?'NON ANCORA':'NOT YET');
+  $('rv').className='vd '+(pass?'ps':'fl');
+  $('rs').textContent=pass?(it?`Hai superato l'esame · ${ok}/${tot}`:`You passed · ${ok}/${tot}`):(it?`Servivano 36 · Hai ottenuto ${ok}/${tot}`:`Need 36 to pass · You scored ${ok}/${tot}`);
+  $('rn').innerHTML=mode==='e'?`${ok}<span class="rsd">/${tot}</span>`:`${pct}<span class="rsd">%</span>`;
+  $('rc').textContent=ok;$('rw').textContent=bad;$('rp').textContent=pct+'%';
+  const ol=L==='en'?'it':'en',tl=it?'Vero':'True',fl2=it?'Falso':'False';
+  $('rvl').innerHTML=hist.map((h,i)=>{
+    const cl=h.q.c?tl:fl2,xl=h.ch?tl:fl2;
+    return`<div class="ri ${h.isOk?'ok':'no'}"><div class="rq">${i+1}. ${h.q.q[L]}</div><div class="rqt">${h.q.q[ol]}</div>${h.isOk?`<div class="ra"><span class="dot g"></span><span style="color:#009246;font-weight:600">${cl}</span></div>`:`<div class="ra"><span class="dot r"></span><span style="color:#CE2B37;text-decoration:line-through">${xl}</span></div><div class="ra"><span class="dot g"></span><span style="color:#009246;font-weight:600">${cl}</span></div>`}</div>`;
+  }).join('');
+  show('s3');
+}
+</script>
